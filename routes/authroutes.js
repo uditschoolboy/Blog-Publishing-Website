@@ -44,7 +44,7 @@ router.get('/signin', (req, res) => {
     res.render('../views/signin.ejs');
 });
 router.get('/signup', (req, res) => {
-    res.render('../views/signup');
+    res.render('../views/signup.ejs');
 });
 router.get('/logout', (req, res)  => {
     res.clearCookie('signed-in');

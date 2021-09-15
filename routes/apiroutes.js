@@ -29,7 +29,7 @@ router.delete('/blogs/:id', async(req, res) => {
 router.get('/blogs/:id', async(req, res) => {
     const blog = await Blog.findById(req.params.id);
     if(blog) {
-        res.render('blog.ejs', {blog});
+        res.render('../views/blog.ejs', {blog});
     } else {
         res.send("Couldn't find the required blog");
     }

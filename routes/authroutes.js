@@ -29,6 +29,7 @@ router.post('/signin', async (req, res) => {
     }
     //send a signed cookie
 });
+
 function sendCookie(email, req, res) {
     const options = {
         maxAge : 1000 * 60 * 60 * 24,
@@ -37,4 +38,16 @@ function sendCookie(email, req, res) {
     }
     res.cookie('signed-in', email, options);
 }
+
+
+router.get('/signin', (req, res) => {
+    res.render('../views/signin.ejs');
+});
+router.get('/signup', (req, res) => {
+    res.render('../views/signup');
+});
+router.get('/logout', (req, res)  => {
+    res.clearCookie('signed-in');
+    res.send("okay logged out");
+})
 module.exports = router;
